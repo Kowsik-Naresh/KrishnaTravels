@@ -3,17 +3,14 @@ FROM maven:3.9.8-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
-# Copy wrapper and config
-COPY mvnw .
-COPY .mvn .mvn
+# Copy pom first (for caching)
 COPY pom.xml .
 
-# Copy source code
+# Copy the rest of the app
 COPY src ./src
 
-# Run build
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+# Build the app
+RUN mvn clean package -DskipTests
 
 # Stage 2: Run the app
 FROM openjdk:21

@@ -1,34 +1,25 @@
-# Stage 1: Build the application using Maven
+# Stage 1: Build the application
 FROM maven:3.9.8-eclipse-temurin-21 AS build
 
-# Set working directory inside the container
 WORKDIR /app
 
-# Copy pom.xml and download dependencies first (for better caching)
+# Copy wrapper and config
+COPY mvnw .
+COPY .mvn .mvn
 COPY pom.xml .
 
-# Copy the wrapper directory if using mvnw
-COPY .mvn .mvn
-COPY mvnw .
-
-
-
-# Copy the source code
+# Copy source code
 COPY src ./src
 
-# Build the project
+# Run build
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-# Stage 2: Run the application with JDK
+# Stage 2: Run the app
 FROM openjdk:21
 
 WORKDIR /app
-
-# Copy the JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose port 8080
 EXPOSE 8080
-
-# Run the application
 CMD ["java", "-jar", "app.jar"]

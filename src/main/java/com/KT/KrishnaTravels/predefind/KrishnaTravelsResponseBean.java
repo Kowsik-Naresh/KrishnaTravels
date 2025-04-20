@@ -28,6 +28,7 @@ public class KrishnaTravelsResponseBean {
 	public String getSuccessMSG() {
 		return successMSG;
 	}
+	
 	public void setSuccessMSG(String successMSG) {
 		this.successMSG = successMSG;
 	}

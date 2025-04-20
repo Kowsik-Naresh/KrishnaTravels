@@ -27,8 +27,10 @@ public class DriverController {
         return "Drivers module";
     }
     
-	/*
+	/**
 	 * API for getting all Driver
+	 * 
+	 * @return List<KrishnaTravelsResponseBean> containing all drivers data
 	 */   
     @GetMapping("/allDrivers")
     public KrishnaTravelsResponseBean getAllDrivers() {
@@ -51,11 +53,11 @@ public class DriverController {
     	return response;
     }
     
-	/* 
+	/**
 	 * API for creating Driver
 	 * @param DriverBean
-	 * return KrishnaTravelsResponseBean with success or error message
-	 * */
+	 * @return KrishnaTravelsResponseBean with success or error message
+	 */
     
     @PostMapping("/createDriver")
     public KrishnaTravelsResponseBean createDriver(@RequestBody DriverBean driver) {

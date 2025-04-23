@@ -52,7 +52,6 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			    <version>42.7.3</version> <!-- Ensure this version is included -->
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

@@ -33,6 +33,7 @@ public class DriverController {
 	 * 
 	 * @return List<KrishnaTravelsResponseBean> containing all drivers data
 	 */   
+    @CrossOrigin(origins = "http://localhost:3001")
     @GetMapping("/allDrivers")
     public KrishnaTravelsResponseBean getAllDrivers() {
     	KrishnaTravelsResponseBean response=new KrishnaTravelsResponseBean();
@@ -46,7 +47,7 @@ public class DriverController {
      * @param driverId the ID of the driver to retrieve
      * @return KrishnaTravelsResponseBean containing driver data
      */
-    
+    @CrossOrigin(origins = "http://localhost:3001")
     @GetMapping("/getDriverById")
     public KrishnaTravelsResponseBean getDriverById(@RequestParam(required=true) Long driverId) {
     	KrishnaTravelsResponseBean response=new KrishnaTravelsResponseBean();

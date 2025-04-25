@@ -17,13 +17,13 @@ public class DriverBean {
     @Column(length = 15, nullable = false)
     private String mobileNumber;
 
-    @Lob  
-    @Column(name = "profile_image", columnDefinition = "BYTEA")
-    private byte[] profileImage;
+     
+    @Column(name = "profile_image",columnDefinition="TEXT")
+    private String profileImage;
 
-    @Lob  
-    @Column(name = "license_image", columnDefinition = "BYTEA")
-    private byte[] licenseImage;
+      
+    @Column(name = "license_image",columnDefinition="TEXT")
+    private String licenseImage;
 
     @Column
     private int experience;
@@ -41,7 +41,7 @@ public class DriverBean {
     public DriverBean() {}
 
     public DriverBean(Long driverId, String driverName, String mobileNumber,
-                      byte[] profileImage, byte[] licenseImage, int experience,
+                      String profileImage, String licenseImage, int experience,
                       LocalDate dateOfBirth, String email, String proofNumber) {
         this.driverId = driverId;
         this.driverName = driverName;
@@ -79,19 +79,19 @@ public class DriverBean {
         this.mobileNumber = mobileNumber;
     }
 
-    public byte[] getProfileImage() {
+    public String getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(byte[] profileImage) {
+    public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
 
-    public byte[] getLicenseImage() {
+    public String getLicenseImage() {
         return licenseImage;
     }
 
-    public void setLicenseImage(byte[] licenseImage) {
+    public void setLicenseImage(String licenseImage) {
         this.licenseImage = licenseImage;
     }
 

@@ -34,7 +34,7 @@ public class ReviewController {
 	{
 	KrishnaTravelsResponseBean response = new KrishnaTravelsResponseBean();
 	
-	response.setData(reviewService.saveReview(reviewBean);
+	response.setData(reviewService.saveReview(reviewBean));
 	return response;
 	}
 }

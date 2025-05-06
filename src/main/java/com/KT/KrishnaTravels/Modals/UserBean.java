@@ -10,6 +10,7 @@ public class UserBean {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long userId;
 
     @Column(nullable = false)
@@ -25,9 +26,9 @@ public class UserBean {
 
     private String address;
 
-    @Lob
-    @Column(name = "profile_image", columnDefinition = "BYTEA")
-    private byte[] profileImage;
+
+    @Column(name = "profile_image", columnDefinition = "TEXT")
+    private String profileImage;
 
     @Column(nullable = false)
     private String password;
@@ -41,7 +42,7 @@ public class UserBean {
     // Constructors
     public UserBean() {}
 
-    public UserBean(String userName, String mobileNumber, String alternateNumber, String email, String address, byte[] profileImage, String password) {
+    public UserBean(String userName, String mobileNumber, String alternateNumber, String email, String address, String profileImage, String password) {
         this.userName = userName;
         this.mobileNumber = mobileNumber;
         this.alternateNumber = alternateNumber;
@@ -104,11 +105,11 @@ public class UserBean {
         this.address = address;
     }
 
-    public byte[] getProfileImage() {
+    public String getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(byte[] profileImage) {
+    public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
 

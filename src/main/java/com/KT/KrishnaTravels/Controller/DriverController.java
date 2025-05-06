@@ -33,7 +33,6 @@ public class DriverController {
 	 * 
 	 * @return List<KrishnaTravelsResponseBean> containing all drivers data
 	 */   
-    @CrossOrigin(origins = "http://localhost:3001")
     @GetMapping("/allDrivers")
     public KrishnaTravelsResponseBean getAllDrivers() {
     	KrishnaTravelsResponseBean response=new KrishnaTravelsResponseBean();
@@ -47,7 +46,6 @@ public class DriverController {
      * @param driverId the ID of the driver to retrieve
      * @return KrishnaTravelsResponseBean containing driver data
      */
-    @CrossOrigin(origins = "http://localhost:3001")
     @GetMapping("/getDriverById")
     public KrishnaTravelsResponseBean getDriverById(@RequestParam(required=true) Long driverId) {
     	KrishnaTravelsResponseBean response=new KrishnaTravelsResponseBean();
@@ -60,12 +58,25 @@ public class DriverController {
 	 * @param DriverBean
 	 * @return KrishnaTravelsResponseBean with success or error message
 	 */
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/createDriver")
     public KrishnaTravelsResponseBean createDriver(@RequestBody DriverBean driver) {
     	KrishnaTravelsResponseBean response=new KrishnaTravelsResponseBean();
     	response.setData(driverService.createDriver(driver));
     	return response;
+    }
+    
+	/**
+	 * 
+	 * API for getting all reviews of particular user
+	 * @param driverId
+	 * @return KrishnaTravelsResponseBean containing reviews data of driver
+	 */
+    @GetMapping("/getDriverReviews")
+    public KrishnaTravelsResponseBean getDriverReviewsByDriverId(@RequestParam(required=true) Long driverId) {
+    	KrishnaTravelsResponseBean response=new KrishnaTravelsResponseBean();
+    	response.setData(driverService.getDriverReviewsByDriverId(driverId));
+    	return response;
+
     }
     
 }

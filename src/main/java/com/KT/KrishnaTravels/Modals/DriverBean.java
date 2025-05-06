@@ -9,6 +9,7 @@ import java.time.LocalDate;
 public class DriverBean {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "driver_id")
     private Long driverId;
 
     @Column(nullable = false)

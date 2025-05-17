@@ -27,14 +27,9 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public CarDTO getCarByCarId(Long carId) {
-        Optional<CarBean> car = carRepository.findById(carId);
-        if (car.isPresent()) {
-            // Map CarBean to CarDTO
-            CarBean carBean = car.get();
-            return new CarDTO(carBean.getCarId(), carBean.getCarName(), carBean.getOwnerName(), carBean.getLocation(), carBean.getPricePerDay());
-        }
-        return null; // Or throw an exception if needed
+    public CarBean getCarByCarId(Long carId) {
+        return carRepository.findByCarId(carId);
+      
     }
 
     @Override

@@ -7,4 +7,6 @@ import com.KT.KrishnaTravels.Modals.CarBean;
 
 @Repository
 public interface CarRepository extends JpaRepository<CarBean, Long> {
+
+	CarBean findByCarId(Long carId);
 }

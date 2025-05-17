@@ -21,7 +21,7 @@ public interface CarService {
      * @param carId the ID of the car to be fetched.
      * @return a CarDTO object representing the car with the given car ID.
      */
-    public CarDTO getCarByCarId(Long carId);
+    public CarBean getCarByCarId(Long carId);
 
     /**
      * Creates a new car.

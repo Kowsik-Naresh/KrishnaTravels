@@ -8,7 +8,8 @@ public class CarBean {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    
+    private Long carId;
 
     private String carName;
     private String ownerName;
@@ -19,70 +20,127 @@ public class CarBean {
     private String fuelType;
     private String transmission;
     private String carNumber;
-
-    @Column(length = 100000)
+    private boolean isActive;
     private String carPhoto; // base64 encoded image
 
-    // Constructors
-    public CarBean() {}
 
-    public CarBean(String carName, String ownerName, String ownerContact, String location,
-                   String pricePerDay, String seatingCapacity, String fuelType,
-                   String transmission, String carNumber, String carPhoto) {
-        this.carName = carName;
-        this.ownerName = ownerName;
-        this.ownerContact = ownerContact;
-        this.location = location;
-        this.pricePerDay = pricePerDay;
-        this.seatingCapacity = seatingCapacity;
-        this.fuelType = fuelType;
-        this.transmission = transmission;
-        this.carNumber = carNumber;
-        this.carPhoto = carPhoto;
-    }
+   
+    public CarBean(Long carId, String carName, String ownerName, String ownerContact, String location,
+			String pricePerDay, String seatingCapacity, String fuelType, String transmission, String carNumber,
+			boolean isActive, String carPhoto) {
+		super();
+		this.carId = carId;
+		this.carName = carName;
+		this.ownerName = ownerName;
+		this.ownerContact = ownerContact;
+		this.location = location;
+		this.pricePerDay = pricePerDay;
+		this.seatingCapacity = seatingCapacity;
+		this.fuelType = fuelType;
+		this.transmission = transmission;
+		this.carNumber = carNumber;
+		this.isActive = isActive;
+		this.carPhoto = carPhoto;
+	}
 
-    // Getters and Setters
-    public Long getId() { return id; }
+	public Long getCarId() {
+		return carId;
+	}
 
-    public void setId(Long id) { this.id = id; }
+	public void setCarId(Long carId) {
+		this.carId = carId;
+	}
 
-    public String getCarName() { return carName; }
+	public boolean isActive() {
+		return isActive;
+	}
 
-    public void setCarName(String carName) { this.carName = carName; }
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 
-    public String getOwnerName() { return ownerName; }
+	
 
-    public void setOwnerName(String ownerName) { this.ownerName = ownerName; }
+	public String getCarName() {
+		return carName;
+	}
 
-    public String getOwnerContact() { return ownerContact; }
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
 
-    public void setOwnerContact(String ownerContact) { this.ownerContact = ownerContact; }
+	public String getOwnerName() {
+		return ownerName;
+	}
 
-    public String getLocation() { return location; }
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
 
-    public void setLocation(String location) { this.location = location; }
+	public String getOwnerContact() {
+		return ownerContact;
+	}
 
-    public String getPricePerDay() { return pricePerDay; }
+	public void setOwnerContact(String ownerContact) {
+		this.ownerContact = ownerContact;
+	}
 
-    public void setPricePerDay(String pricePerDay) { this.pricePerDay = pricePerDay; }
+	public String getLocation() {
+		return location;
+	}
 
-    public String getSeatingCapacity() { return seatingCapacity; }
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
-    public void setSeatingCapacity(String seatingCapacity) { this.seatingCapacity = seatingCapacity; }
+	public String getPricePerDay() {
+		return pricePerDay;
+	}
 
-    public String getFuelType() { return fuelType; }
+	public void setPricePerDay(String pricePerDay) {
+		this.pricePerDay = pricePerDay;
+	}
 
-    public void setFuelType(String fuelType) { this.fuelType = fuelType; }
+	public String getSeatingCapacity() {
+		return seatingCapacity;
+	}
 
-    public String getTransmission() { return transmission; }
+	public void setSeatingCapacity(String seatingCapacity) {
+		this.seatingCapacity = seatingCapacity;
+	}
 
-    public void setTransmission(String transmission) { this.transmission = transmission; }
+	public String getFuelType() {
+		return fuelType;
+	}
 
-    public String getCarNumber() { return carNumber; }
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
+	}
 
-    public void setCarNumber(String carNumber) { this.carNumber = carNumber; }
+	public String getTransmission() {
+		return transmission;
+	}
 
-    public String getCarPhoto() { return carPhoto; }
+	public void setTransmission(String transmission) {
+		this.transmission = transmission;
+	}
 
-    public void setCarPhoto(String carPhoto) { this.carPhoto = carPhoto; }
+	public String getCarNumber() {
+		return carNumber;
+	}
+
+	public void setCarNumber(String carNumber) {
+		this.carNumber = carNumber;
+	}
+
+	public String getCarPhoto() {
+		return carPhoto;
+	}
+
+	public void setCarPhoto(String carPhoto) {
+		this.carPhoto = carPhoto;
+	}
+
+   
+
 }

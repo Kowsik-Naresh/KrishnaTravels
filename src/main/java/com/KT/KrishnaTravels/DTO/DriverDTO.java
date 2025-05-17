@@ -9,7 +9,14 @@ public class DriverDTO {
 
     private List<ReviewDetailsDTO> reviewDetailsDTOs;
     private DriverBean driverBean;
-    public DriverDTO() {
+    private String driverRating;
+    public String getDriverRating() {
+		return driverRating;
+	}
+	public void setDriverRating(String driverRating) {
+		this.driverRating = driverRating;
+	}
+	public DriverDTO() {
     	
     }
     public DriverBean getDriverBean() {

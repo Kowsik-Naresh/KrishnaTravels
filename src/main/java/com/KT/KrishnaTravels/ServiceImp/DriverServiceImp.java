@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.KT.KrishnaTravels.DTO.AllDriversDTO;
 import com.KT.KrishnaTravels.DTO.DriverDTO;
 import com.KT.KrishnaTravels.DTO.ReviewDetailsDTO;
 import com.KT.KrishnaTravels.Modals.DriverBean;
 import com.KT.KrishnaTravels.Modals.ReviewBean;
 import com.KT.KrishnaTravels.Modals.UserBean;
 import com.KT.KrishnaTravels.Repository.DriverRepo;
+import com.KT.KrishnaTravels.Repository.ReviewRepo;
 import com.KT.KrishnaTravels.Service.DriverService;
 
 import jakarta.persistence.EntityManager;
@@ -29,11 +31,36 @@ public class DriverServiceImp implements DriverService{
 	
 	@Autowired
 	private EntityManager entityManager;
+	
+	
+	@Autowired
+	ReviewRepo reviewRepo;
 
 	
 	@Override
-	public List<DriverBean> getAllDrivers() {	
-		return driverRepo.findAll();
+	public List<AllDriversDTO> getAllDrivers() {	
+		List<DriverBean> drivers= driverRepo.findAll();
+		List<AllDriversDTO> allDrivers=new ArrayList<>();
+		for(DriverBean driver:drivers) {
+			AllDriversDTO Driver=new AllDriversDTO();
+			Driver.setDriver(driver); 
+			List<ReviewBean> reviews=reviewRepo.findByReviewedDriverId(driver.getDriverId());
+			Integer reviewCount=reviews.size();
+			Integer allReviewsSum=0;
+			if(reviewCount!=0) {
+				for(ReviewBean review:reviews) {
+					allReviewsSum+=review.getReviewRating();
+				}
+				Driver.setRating(Math.abs(allReviewsSum/reviewCount));
+
+			}else {
+				Driver.setRating(1);
+
+			}
+			
+			allDrivers.add(Driver);
+		}
+		return allDrivers;
 	}
 
 	@Override

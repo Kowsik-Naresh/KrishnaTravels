@@ -3,9 +3,11 @@ package com.KT.KrishnaTravels.Repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.KT.KrishnaTravels.Modals.DrivingJobBean;
 
+@Repository
 public interface DrivingJobRepo extends JpaRepository<DrivingJobBean,Long> {
 	
 	DrivingJobBean save(DrivingJobBean job);

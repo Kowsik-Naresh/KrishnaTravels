@@ -3,6 +3,7 @@ package com.KT.KrishnaTravels.Service;
 
 import java.util.List;
 
+import com.KT.KrishnaTravels.DTO.AllDriversDTO;
 import com.KT.KrishnaTravels.DTO.DriverDTO;
 import com.KT.KrishnaTravels.DTO.ReviewDetailsDTO;
 import com.KT.KrishnaTravels.Modals.DriverBean;
@@ -15,7 +16,7 @@ public interface DriverService {
      *
      * @return a list of DriverBean objects representing all drivers.
      */
-	public List<DriverBean> getAllDrivers();
+	public List<AllDriversDTO> getAllDrivers();
 	 
 	/**
      * Fetches a driver based on the provided driver ID.

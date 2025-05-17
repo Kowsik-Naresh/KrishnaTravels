@@ -12,4 +12,6 @@ public interface ReviewRepo  extends JpaRepository<ReviewBean,Long>{
 
 		 public  ReviewBean save(ReviewBean review);
 		 List<ReviewBean> findByReviewedCarId(Long reviewedCarId);
+		 List<ReviewBean> findByReviewedDriverId(Long reviewedDriverId);
+
 }

@@ -8,7 +8,7 @@ public class CarBean {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+    @Column(name = "car_id")
     private Long carId;
 
     private String carName;

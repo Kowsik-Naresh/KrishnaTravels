@@ -32,7 +32,7 @@ public class CarServiceImp implements CarService {
         if (car.isPresent()) {
             // Map CarBean to CarDTO
             CarBean carBean = car.get();
-            return new CarDTO(carBean.getId(), carBean.getCarName(), carBean.getOwnerName(), carBean.getLocation(), carBean.getPricePerDay());
+            return new CarDTO(carBean.getCarId(), carBean.getCarName(), carBean.getOwnerName(), carBean.getLocation(), carBean.getPricePerDay());
         }
         return null; // Or throw an exception if needed
     }

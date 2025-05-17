@@ -44,7 +44,7 @@ public class ReviewBean {
     private DriverBean driver;
 
     @ManyToOne
-    @JoinColumn(name = "car_id", referencedColumnName = "car_id") 
+    @JoinColumn(name = "reviewed_car_id", referencedColumnName = "car_id") 
     private CarBean car;
 
 

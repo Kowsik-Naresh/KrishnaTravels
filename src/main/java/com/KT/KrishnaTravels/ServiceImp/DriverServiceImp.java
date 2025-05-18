@@ -44,23 +44,27 @@ public class DriverServiceImp implements DriverService{
 		for(DriverBean driver:drivers) {
 			AllDriversDTO Driver=new AllDriversDTO();
 			Driver.setDriver(driver); 
-			List<ReviewBean> reviews=reviewRepo.findByReviewedDriverId(driver.getDriverId());
-			Integer reviewCount=reviews.size();
-			Integer allReviewsSum=0;
-			if(reviewCount!=0) {
-				for(ReviewBean review:reviews) {
-					allReviewsSum+=review.getReviewRating();
-				}
-				Driver.setRating(Math.abs(allReviewsSum/reviewCount));
-
-			}else {
-				Driver.setRating(1);
-
-			}
-			
+			Driver.setRating(getDriverRating(driver.getDriverId()));
 			allDrivers.add(Driver);
 		}
 		return allDrivers;
+	}
+
+	private Integer getDriverRating(Long driverId) {
+		List<ReviewBean> reviews=reviewRepo.findByReviewedDriverId(driverId);
+		Integer reviewCount=reviews.size();
+		Integer allReviewsSum=0;
+		if(reviewCount!=0) {
+			for(ReviewBean review:reviews) {
+				allReviewsSum+=review.getReviewRating();
+			}
+			return Math.abs(allReviewsSum/reviewCount);
+
+		}else {
+			return 1;
+
+		}
+		
 	}
 
 	@Override
@@ -68,6 +72,7 @@ public class DriverServiceImp implements DriverService{
 		DriverDTO driverDTO=new DriverDTO();
 		driverDTO.setDriverBean(driverRepo.findByDriverId(driverId));
 		driverDTO.setReviewBean(getDriverReviewsByDriverId(driverId));
+		driverDTO.setDriverRating(getDriverRating(driverId));
 		return driverDTO;
 	}
 

@@ -1,6 +1,5 @@
 package com.KT.KrishnaTravels.ServiceImp;
 
-import com.KT.KrishnaTravels.DTO.CarDTO;
 import com.KT.KrishnaTravels.Modals.CarBean;
 import com.KT.KrishnaTravels.Modals.ReviewBean;
 import com.KT.KrishnaTravels.Repository.CarRepository;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CarServiceImp implements CarService {

@@ -32,11 +32,19 @@ public class ReviewBean {
     @Column(name = "reviewed_driver_id")
     private Long reviewedDriverId;
     
-    
-    
-    // For car reviews
+
+	// For car reviews
     @Column(name = "reviewed_car_id")
-    private Long reviewedCarId; // New field for car review
+    private Long reviewedCarId; 
+    
+	/*
+	 * FROM_DRIVERS=1; FROM_CARS=2; FROM_DRIVING_SCHOOL=3;
+	 */
+    @Column(name = "referance_type")
+    private Integer referanceType;
+    
+    @Column(name = "is_active", columnDefinition = "INT DEFAULT 1")
+    private Integer isActive;
 
     // Relationship with DriverBean
     @ManyToOne
@@ -133,4 +141,13 @@ public class ReviewBean {
     public void setUser(UserBean user) {
         this.user = user;
     }
+    
+    
+    public Integer getReferanceType() {
+		return referanceType;
+	}
+
+	public void setReferanceType(Integer referanceType) {
+		this.referanceType = referanceType;
+	}
 }
